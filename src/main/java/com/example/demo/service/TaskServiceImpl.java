@@ -25,4 +25,12 @@ public class TaskServiceImpl implements TaskService {
         Task task = new Task(taskDTO.getName(),taskDTO.getDateTime(),taskDTO.getDesc());
         repository.addTask(task);
     }
+
+    @Override
+    public Task getTaskId(int taskId) {
+        for (Task t:repository.getTasks() ) {
+            if (t.getId() == taskId){   return t;  }
+        }
+        return null;
+    }
 }

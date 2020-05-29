@@ -12,4 +12,6 @@ public interface TaskService {
     public List<Task> getTasks();
 
     void addTask(TaskDTO taskDTO);
+
+    Task getTaskId(int taskId);
 }

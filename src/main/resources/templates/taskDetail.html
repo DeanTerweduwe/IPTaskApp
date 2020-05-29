@@ -14,7 +14,6 @@
         <td style="font-weight:bold">Date & Time</td>
         <td style="font-weight:bold">Description</td>
     </tr>
-    <th:block th:each="task : ${tasks}">
         <tr>
             <td th:text="${task.name}">...</td>
 
@@ -23,27 +22,24 @@
 
             <td th:text="${task.desc}">...</td>
         </tr>
-        <tr>
-            <td>
-                <a th:href="@{'/tasks/' + ${task.id}}" th:text="Details"></a>
-            </td>
-        </tr>
 
-    </th:block>
 </table>
 
 
 <!--<form action="/tasks/new" method="post">-->
-    <!--<label for="name">First name:</label><br>-->
-    <!--<input type="text" id="name" name="name" value="name"><br>-->
-    <!--<label for="dateTime">time and date:</label><br>-->
-    <!--<input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"><br><br>-->
-    <!--<label for="desc">description:</label><br>-->
-    <!--<input type="text" id="desc" name="desc" value="desc"><br><br>-->
-    <!--<input type="submit" value="Add">-->
+<!--<label for="name">First name:</label><br>-->
+<!--<input type="text" id="name" name="name" value="name"><br>-->
+<!--<label for="dateTime">time and date:</label><br>-->
+<!--<input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"><br><br>-->
+<!--<label for="desc">description:</label><br>-->
+<!--<input type="text" id="desc" name="desc" value="desc"><br><br>-->
+<!--<input type="submit" value="Add">-->
 <!--</form>-->
 
 <p> click <a href="/tasks/new">here</a> to add a new task</p>
+<p> click <a href="/tasks">here</a> to go back to list</p>
+
+
 </body>
 
 

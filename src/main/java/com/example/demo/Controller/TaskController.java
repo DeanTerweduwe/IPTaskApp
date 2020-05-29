@@ -7,10 +7,7 @@ import com.example.demo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/tasks")
@@ -43,5 +40,22 @@ public class TaskController {
         return "redirect:/";
 
     }
+
+    @GetMapping("/{id}")
+    public String detailTask(@PathVariable int id, Model model){
+        String error = "";
+        try {
+            Task task = this.taskService.getTaskId(id);
+            model.addAttribute("task",task);
+            return "taskDetail";
+        }
+        catch (NumberFormatException e){
+            error = id + " is not a valid ID!";
+        }
+        model.addAttribute("error",error);
+        return "erroruser";
+    }
+
+
 
 }
