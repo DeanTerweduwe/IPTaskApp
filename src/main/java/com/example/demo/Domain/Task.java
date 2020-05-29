@@ -1,0 +1,55 @@
+package com.example.demo.Domain;
+
+import java.time.LocalDateTime;
+
+public class Task {
+    private int id;
+    private String name;
+    private LocalDateTime dateTime;
+    private String desc;
+
+    public Task(String name, LocalDateTime dateTime, String desc) {
+        this.name = name;
+        this.dateTime = dateTime;
+        this.desc = desc;
+    }
+
+    public Task(String name, LocalDateTime dateTime, String desc,int id) {
+        this.name = name;
+        this.dateTime = dateTime;
+        this.desc = desc;
+        this.id =id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+}

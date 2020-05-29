@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h1><p th:text="${spam}"></p></h1>-->
+
+<h2>TASKS</h2>
+<table>
+    <tr>
+        <td style="font-weight:bold" >name</td>
+        <td style="font-weight:bold">Date & Time</td>
+        <td style="font-weight:bold">Description</td>
+    </tr>
+    <th:block th:each="task : ${tasks}">
+        <tr>
+            <td th:text="${task.name}">...</td>
+
+            <td th:text="${task.dateTime}">...</td>
+
+
+            <td th:text="${task.desc}">...</td>
+        </tr>
+
+    </th:block>
+</table>
+
+
+<form action="/" method="post">
+    <label for="name">First name:</label><br>
+    <input type="text" id="name" name="name" value="name"><br>
+    <label for="dateTime">time and date:</label><br>
+    <input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"><br><br>
+    <label for="desc">description:</label><br>
+    <input type="text" id="desc" name="desc" value="desc"><br><br>
+    <input type="submit" value="Add">
+</form>
+
+<p> click <a href="/tasks/new">here</a> to add a new task</p>
+</body>
+
+
+</html>

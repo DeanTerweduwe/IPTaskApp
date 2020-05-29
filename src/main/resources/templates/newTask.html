@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Task</title>
+</head>
+<h2>Add new task</h2>
+<body>
+
+<form action="/tasks/new" method="post">
+    <label for="name">First name:</label><br>
+    <input type="text" id="name" name="name" value="name"><br>
+    <label for="dateTime">time and date:</label><br>
+    <input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"><br><br>
+    <label for="desc">description:</label><br>
+    <input type="text" id="desc" name="desc" value="desc"><br><br>
+    <input type="submit" value="Add">
+</form>
+
+</body>
+</html>
