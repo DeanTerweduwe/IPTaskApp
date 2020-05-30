@@ -2,13 +2,25 @@ package com.example.demo.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class TaskDTO {
+    @Id
+    @GeneratedValue
+    private int id;
+    @NotEmpty
     private String name;
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
+    @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dateTime;
     private String desc;
+
+    public TaskDTO() {
+    }
 
     public TaskDTO(String name, LocalDateTime dateTime, String desc) {
         this.name = name;
