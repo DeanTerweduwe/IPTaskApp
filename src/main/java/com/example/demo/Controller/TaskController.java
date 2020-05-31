@@ -1,6 +1,8 @@
 package com.example.demo.Controller;
 
 
+import com.example.demo.Domain.SubTask;
+import com.example.demo.Domain.SubTaskDTO;
 import com.example.demo.Domain.Task;
 import com.example.demo.dto.TaskDTO;
 import com.example.demo.service.TaskService;
@@ -87,6 +89,28 @@ public class TaskController {
         taskService.editTask(id,taskdto);
         return "redirect:/tasks/{id}";
     }
+
+    @GetMapping("/{id}/sub/create")
+    public String addSubTask(@PathVariable int id,Model model){
+        model.addAttribute("subtaskdto",new SubTaskDTO());
+        model.addAttribute("task",taskService.getTaskId(id));
+        return "newSubTask";
+    }
+
+    @PostMapping("/{id}/sub/create")
+    public String addTask(@PathVariable int id, @ModelAttribute("subtaskdto") @Valid SubTask subTask, BindingResult bindingResult, Model model){
+
+        if(bindingResult.hasErrors()){
+            System.out.println(bindingResult.getAllErrors().toString());
+            model.addAttribute("task",taskService.getTaskId(id));
+//            model.addAttribute("subtaskdto",new SubTaskDTO());
+
+            return "newSubTask";
+        }
+        taskService.getTaskId(id).addSubTask(subTask);
+        return "redirect:/tasks/{id}";
+    }
+
 
 
 }

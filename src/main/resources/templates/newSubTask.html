@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Add subtask to ' + ${task.name}">
+    </title>
+</head>
+<body>
+<h1 th:text="'Add subtask to ' + ${task.name}"></h1>
+
+
+<form th:action="@{'/tasks/' + ${task.id} +'/sub/create'}" method="post" th:object="${subtaskdto}" >
+    <p th:errors="*{name}"></p>
+    <label for="name">name</label><br>
+    <input type="text" id="name" name="name"> <br>
+    <p th:errors="*{desc}"></p>
+    <label for="desc">description:</label><br>
+    <input type="text" id="desc" name="desc" value="desc" th:field="*{desc}"><br>
+
+
+
+
+    <input type="submit" value="Add">
+</form>
+
+</body>
+</html>

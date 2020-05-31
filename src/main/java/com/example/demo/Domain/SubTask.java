@@ -1,8 +1,8 @@
-package com.example.demo.dto;
-
-import com.example.demo.Domain.Task;
+package com.example.demo.Domain;
+import com.example.demo.dto.TaskDTO;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
@@ -11,21 +11,22 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskDTO {
 
-
+public class SubTask {
+    @Id
+    @GeneratedValue
     private int id;
     @NotEmpty
     private String name;
-    @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dateTime;
     private String desc;
-    private List<Task> subTasks;
 
-    public TaskDTO() {
-        this.subTasks = new ArrayList<>();
+    public SubTask() {
+    }
 
+    public SubTask(String name, String desc) {
+
+        this.name = name;
+        this.desc = desc;
     }
 
 
@@ -45,13 +46,7 @@ public class TaskDTO {
         this.name = name;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 
     public String getDesc() {
         return desc;
@@ -61,12 +56,8 @@ public class TaskDTO {
         this.desc = desc;
     }
 
-    public List<Task> getSubTasks() {
-        return subTasks;
-    }
 
-    public void setSubTasks(List<Task> subTasks) {
-        this.subTasks = subTasks;
-    }
+
+
 
 }

@@ -26,6 +26,29 @@
 </table>
 <a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="Edit"></a>
 
+<br>
+<h2>Subtasks</h2>
+<table>
+    <tr>
+        <td style="font-weight:bold" >name</td>
+        <td style="font-weight:bold">Description</td>
+    </tr>
+    <th:block th:each="subtasks : ${task.subTasks}">
+        <tr>
+            <td th:text="${subtasks.name}">...</td>
+
+
+            <td th:text="${subtasks.desc}">...</td>
+        </tr>
+
+    </th:block>
+</table>
+
+
+<a th:href="@{'/tasks/' + ${task.id} + '/sub/create'}" th:text="Add-subtask"></a>
+
+
+
 
 <!--<form action="/tasks/new" method="post">-->
 <!--<label for="name">First name:</label><br>-->
