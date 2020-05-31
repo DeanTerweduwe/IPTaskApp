@@ -33,4 +33,16 @@ public class TaskServiceImpl implements TaskService {
         }
         return null;
     }
+
+    @Override
+    public void editTask(int taskId,TaskDTO taskDTO) {
+        for (Task t:repository.getTasks() ) {
+            if (t.getId() == taskId){
+                t.setDateTime(taskDTO.getDateTime());
+                t.setDesc(taskDTO.getDesc());
+                t.setName(taskDTO.getName());
+            }
+        }
+
+    }
 }

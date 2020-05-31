@@ -28,6 +28,11 @@
                 <a th:href="@{'/tasks/' + ${task.id}}" th:text="Details"></a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="Edit"></a>
+            </td>
+        </tr>
 
     </th:block>
 </table>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Edit Task
+    </title>
+</head>
+<body>
+<h1 th:text="'Edit task: ' + ${taskdto.name}"></h1>
+
+
+<form th:action="@{'/tasks/edit/' + ${taskdto.id}}" method="post" th:object="${taskdto}" >
+    <p th:errors="*{name}"></p>
+    <label for="name">name</label><br>
+    <input type="text" id="name" name="name" value="name" th:field="*{name}"> <br>
+
+
+    <p th:errors="*{dateTime}"></p>
+    <label for="dateTime">time and date:</label><br>
+    <input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"  th:field="*{dateTime}"><br>
+
+    <p th:errors="*{desc}"></p>
+    <label for="desc">description:</label><br>
+    <input type="text" id="desc" name="desc" value="desc" th:field="*{desc}"><br>
+
+
+
+
+    <input type="submit" value="Edit Task">
+</form>
+
+</body>
+</html>

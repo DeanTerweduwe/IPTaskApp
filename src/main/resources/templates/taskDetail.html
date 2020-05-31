@@ -7,7 +7,7 @@
 <body>
 <!--<h1><p th:text="${spam}"></p></h1>-->
 
-<h2>TASKS</h2>
+<h2>TASK DETAILS</h2>
 <table>
     <tr>
         <td style="font-weight:bold" >name</td>
@@ -24,6 +24,7 @@
         </tr>
 
 </table>
+<a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="Edit"></a>
 
 
 <!--<form action="/tasks/new" method="post">-->
@@ -36,8 +37,8 @@
 <!--<input type="submit" value="Add">-->
 <!--</form>-->
 
-<p> click <a href="/tasks/new">here</a> to add a new task</p>
 <p> click <a href="/tasks">here</a> to go back to list</p>
+
 
 
 </body>

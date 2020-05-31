@@ -13,7 +13,7 @@ public class Task {
     @Id
     @GeneratedValue
     private int id;
-    @NotEmpty(message = "Name is empty")
+    @NotEmpty
     private String name;
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

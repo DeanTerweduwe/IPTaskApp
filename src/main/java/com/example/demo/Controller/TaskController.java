@@ -71,6 +71,22 @@ public class TaskController {
         return "erroruser";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editTaskPage(@PathVariable int id,Model model){
+        model.addAttribute("taskdto",taskService.getTaskId(id));
+        return "taskEdit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String editTaskPage(@PathVariable int id,@ModelAttribute("taskdto") @Valid TaskDTO taskdto, BindingResult bindingResult,Model model){
+
+        if(bindingResult.hasErrors()){
+            System.out.println(bindingResult.getAllErrors().toString());
+            return "newTask";
+        }
+        taskService.editTask(id,taskdto);
+        return "redirect:/tasks/{id}";
+    }
 
 
 }

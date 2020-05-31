@@ -9,8 +9,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class TaskDTO {
-    @Id
-    @GeneratedValue
+
+
     private int id;
     @NotEmpty
     private String name;
@@ -22,10 +22,13 @@ public class TaskDTO {
     public TaskDTO() {
     }
 
-    public TaskDTO(String name, LocalDateTime dateTime, String desc) {
-        this.name = name;
-        this.dateTime = dateTime;
-        this.desc = desc;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
