@@ -2,17 +2,19 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{titleTasks}" >Title</title>
 </head>
 <body>
+<nav th:insert="fragments/lang"></nav>
+
 <!--<h1><p th:text="${spam}"></p></h1>-->
 
-<h2>TASKS</h2>
+<h2  th:text="#{titleTasks}" ></h2>
 <table>
     <tr>
-        <td style="font-weight:bold" >name</td>
-        <td style="font-weight:bold">Date & Time</td>
-        <td style="font-weight:bold">Description</td>
+        <td style="font-weight:bold"  th:text="#{nameField}"></td>
+        <td style="font-weight:bold"  th:text="#{dateField}"></td>
+        <td style="font-weight:bold"  th:text="#{descField}"></td>
     </tr>
     <th:block th:each="task : ${tasks}">
         <tr>
@@ -25,12 +27,12 @@
         </tr>
         <tr>
             <td>
-                <a th:href="@{'/tasks/' + ${task.id}}" th:text="Details"></a>
+                <a th:href="@{'/tasks/' + ${task.id}}" th:text="#{details}"></a>
             </td>
         </tr>
         <tr>
             <td>
-                <a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="Edit"></a>
+                <a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="#{edit}"></a>
             </td>
         </tr>
 
@@ -48,7 +50,7 @@
     <!--<input type="submit" value="Add">-->
 <!--</form>-->
 
-<p> click <a href="/tasks/new">here</a> to add a new task</p>
+<p>  <a href="/tasks/new" th:text="#{newTask}"></a> </p>
 </body>
 
 

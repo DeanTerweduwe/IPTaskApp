@@ -2,32 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>
-        Edit Task
+    <title th:text="#{editTitle}">
     </title>
 </head>
 <body>
-<h1 th:text="'Edit task: ' + ${taskdto.name}"></h1>
+<nav th:insert="fragments/lang"></nav>
+
+<h1 th:text="#{editTitle}  + ${taskdto.name}"></h1>
 
 
 <form th:action="@{'/tasks/edit/' + ${taskdto.id}}" method="post" th:object="${taskdto}" >
     <p th:errors="*{name}"></p>
-    <label for="name">name</label><br>
+    <label for="name" th:text="#{nameField}"></label><br>
     <input type="text" id="name" name="name" value="name" th:field="*{name}"> <br>
 
 
     <p th:errors="*{dateTime}"></p>
-    <label for="dateTime">time and date:</label><br>
+    <label for="dateTime" th:text="#{dateField}">time and date:</label><br>
     <input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"  th:field="*{dateTime}"><br>
 
     <p th:errors="*{desc}"></p>
-    <label for="desc">description:</label><br>
+    <label for="desc" th:text="#{descField}">description:</label><br>
     <input type="text" id="desc" name="desc" value="desc" th:field="*{desc}"><br>
 
 
 
 
-    <input type="submit" value="Edit Task">
+    <input type="submit"  th:value="#{edit}">
 </form>
 
 </body>

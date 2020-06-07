@@ -2,17 +2,18 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <title th:text="#{titleDetail}">
+    </title></head>
 <body>
 <!--<h1><p th:text="${spam}"></p></h1>-->
+<nav th:insert="fragments/lang"></nav>
 
-<h2>TASK DETAILS</h2>
+<h2 th:text="#{titleDetail}"></h2>
 <table>
     <tr>
-        <td style="font-weight:bold" >name</td>
-        <td style="font-weight:bold">Date & Time</td>
-        <td style="font-weight:bold">Description</td>
+        <td style="font-weight:bold" th:text="#{nameField}"></td>
+        <td style="font-weight:bold" th:text="#{dateField}"></td>
+        <td style="font-weight:bold" th:text="#{descField}"></td>
     </tr>
         <tr>
             <td th:text="${task.name}">...</td>
@@ -24,14 +25,14 @@
         </tr>
 
 </table>
-<a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="Edit"></a>
+<a th:href="@{'/tasks/edit/' + ${task.id}}" th:text="#{edit}"></a>
 
 <br>
 <h2>Subtasks</h2>
 <table>
     <tr>
-        <td style="font-weight:bold" >name</td>
-        <td style="font-weight:bold">Description</td>
+        <td style="font-weight:bold"  th:text="#{nameField}"></td>
+        <td style="font-weight:bold" th:text="#{descField}"></td>
     </tr>
     <th:block th:each="subtasks : ${task.subTasks}">
         <tr>
@@ -45,7 +46,7 @@
 </table>
 
 
-<a th:href="@{'/tasks/' + ${task.id} + '/sub/create'}" th:text="Add-subtask"></a>
+<a th:href="@{'/tasks/' + ${task.id} + '/sub/create'}" th:text="#{subadd}"></a>
 
 
 
@@ -60,7 +61,7 @@
 <!--<input type="submit" value="Add">-->
 <!--</form>-->
 
-<p> click <a href="/tasks">here</a> to go back to list</p>
+<p>  <a href="/tasks" th:text="#{backtolist}"></a> </p>
 
 
 

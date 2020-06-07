@@ -1,33 +1,36 @@
 <!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>
-        Add Task
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title th:text="#{titleNew}">
     </title>
 </head>
 <body>
-<h1>Add Task</h1>
+<nav th:insert="fragments/lang"></nav>
+
+<h1 th:text="#{titleNew}"></h1>
 
 
 <form action="/tasks/new" method="post" th:object="${taskdto}" >
     <p th:errors="*{name}"></p>
-    <label for="name">name</label><br>
+    <label for="name" th:text="#{nameField}">name</label><br>
     <input type="text" id="name" name="name" value="name"> <br>
 
 
     <p th:errors="*{dateTime}"></p>
-    <label for="dateTime">time and date:</label><br>
+    <label for="dateTime" th:text="#{dateField}">time and date:</label><br>
     <input type="datetime-local" id="dateTime" name="dateTime" value="dateTime"  th:field="*{dateTime}"><br>
 
     <p th:errors="*{desc}"></p>
-    <label for="desc">description:</label><br>
+    <label for="desc" th:text="#{descField}">description:</label><br>
     <input type="text" id="desc" name="desc" value="desc" th:field="*{desc}"><br>
 
 
 
 
-    <input type="submit" value="Add">
+    <input type="submit" th:value="#{submitBut}">
 </form>
 
 </body>

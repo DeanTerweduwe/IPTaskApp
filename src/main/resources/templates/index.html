@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{titleIndex}">
+    </title>
+</head>
+<body>
+<nav th:insert="fragments/lang"></nav>
+
+<h2 th:text="#{titleIndex}"></h2>
+<p> <a th:href="@{/tasks}" th:text="#{tasksLink}"></a></p>
+<p> <a href="/tasks/new" th:text="#{newTask}"></a></p>
+
+
+
+
+
+
+</body>
+
+
+</html>
