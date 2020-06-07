@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -13,7 +13,7 @@
 <h1 th:text="#{titleNew}"></h1>
 
 
-<form action="/tasks/new" method="post" th:object="${taskdto}" >
+<form th:action="@{'/tasks/new'}" th:method="post" th:object="${taskdto}" >
     <p th:errors="*{name}"></p>
     <label for="name" th:text="#{nameField}">name</label><br>
     <input type="text" id="name" name="name" value="name"> <br>

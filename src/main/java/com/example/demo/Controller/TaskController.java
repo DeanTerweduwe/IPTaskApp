@@ -21,7 +21,8 @@ public class TaskController {
     private final TaskService taskService;
 
     @Autowired
-    public TaskController(TaskService taskService){this.taskService = taskService;}
+    public TaskController(TaskService taskService){this.taskService = taskService;
+    }
 
     @GetMapping
     public String getTasks(Model  model){
@@ -50,7 +51,7 @@ public class TaskController {
             return "newTask";
         }
         taskService.addTask(taskdto);
-        return "redirect:/";
+        return "redirect:/tasks";
     }
 
 

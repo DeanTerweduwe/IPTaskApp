@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <link th:href="@{/style.css}" rel="stylesheet">
 
@@ -20,9 +20,11 @@
             <a href="?lang=en">EN</a>
                     </li>
 
-    </ul>
+    </ul><br/>
+<div sec:authorize="isAuthenticated()">
+    <div th:insert="fragments/logout"></div>
 
-
+</div>
 
 
 
