@@ -36,6 +36,8 @@ public class UserController {
 			return "signupform";
 		}
 		userService.createUser(user);
+		System.out.println(user.getRole());
+		System.out.println(user.getUsername());
 		return "redirect:/login";
 	}
 

@@ -38,7 +38,10 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		user.setUsername(userDTO.getUsername());
 		user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-		user.setRole(userDTO.getRole());
+		if(user.getRole() == null){
+			user.setRole(UserRole.MEMBER);
+		} else			user.setRole(userDTO.getRole());
+
 		user = repository.save(user);
 		return convert(user);
 	}
